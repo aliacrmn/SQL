@@ -1,0 +1,27 @@
+-- Create a bookstore database
+
+CREATE TABLE books (id INTEGER PRIMARY KEY, name TEXT, author TEXT, genre TEXT, price INTEGER);
+
+INSERT INTO books VALUES (1, "Alone With You in the Ether", "Olivie Blake", "Contemporary Fiction", 15);
+INSERT INTO books VALUES (2, "Everything I Know About Love", "Dolly Alderton", "Memoir", 12);
+INSERT INTO books VALUES (3, "Her Body and Other Parties", "Carmen Maria Machado", "Short Stories", 10);
+INSERT INTO books VALUES (4, "Luster", "Raven Leilani", "Contemporary Fiction", 10);
+INSERT INTO books VALUES (5, "Evidence of the Affair", "Taylor Jenkins Reid", "Short Stories", 5);
+INSERT INTO books VALUES (6, "The Seven Husbands of Evelyn Hugo", "Taylor Jenkins Reid", "Contemporary Fiction", 15);
+INSERT INTO books VALUES (7, "Love and Other Words", "Christina Lauren", "Romance", 5);
+INSERT INTO books VALUES (8, "The Secret History", "Donna Tartt", "Literary Fiction", 10);
+INSERT INTO books VALUES (9, "Pride and Prejudice", "Jane Austen", "Classics", 3);
+INSERT INTO books VALUES (10, "The Bell Jar", "Sylvia Plath", "Classics", 3);
+INSERT INTO books VALUES (11, "The Song of Achilles", "Madeline Miller", "Mythology", 15);
+INSERT INTO books VALUES (12, "Circe", "Madeline Miller", "Mythology", 12);
+INSERT INTO books VALUES (13, "The Symposium", "Plato", "Philosophy", 1);
+INSERT INTO books VALUES (14, "The Love Hypothesis", "Ali Hazelwood", "Romance", 12);
+INSERT INTO books VALUES (15, "November 9", "Colleen Hoover", "Romance", 10);
+
+-- Display the database ordered by price
+SELECT * FROM books 
+ORDER BY price;
+
+-- Which books have prices equal to or greater than 10?
+SELECT * FROM books 
+WHERE price >=10 ORDER BY price
