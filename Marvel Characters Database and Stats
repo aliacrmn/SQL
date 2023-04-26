@@ -1,4 +1,4 @@
-/* Put your data in here and query it! For the purpose of this project, I am using Marvel characters data. */
+/* Put your data in here and query it! For the purpose of this project, I am using Marvel characters data provided by Khan Academy. */
 
 CREATE TABLE marvels (ID INTEGER PRIMARY KEY,
     name TEXT,
