@@ -33,7 +33,7 @@ INSERT INTO movies VALUES (5, "Pulp Fiction", 1994, 9, 8);
 
 
 
-/* Show the name of each actor and their spouses name (even if they do not have a spouse, which would result in NULL) (LEFT OUTER JOIN) */
+/* Show the name of each actor and their spouses name (even if they do not have a spouse, which would result in NULL). */
 
 SELECT actors.name, spouses.spouse_name
 FROM actors
@@ -42,7 +42,7 @@ ON actors.id = spouses.actors_id;
 
 
 
-/* Show the titles of each movie and the starring actors names. (MULTIPLE JOINS) */
+/* Show the titles of each movie and the starring actors names. */
 
 SELECT title, actor1.name, actor2.name
 FROM movies
@@ -53,3 +53,9 @@ ON movies.actor2_id = actor2.id;
 
 
 
+/* Show the names of each actor and the gender of their co-star. */
+
+SELECT actors.name, costars.gender AS costars_gender
+FROM actors
+JOIN actors AS costars
+ON actors.co_star_id = costars.id;
