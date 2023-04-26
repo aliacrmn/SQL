@@ -1,0 +1,55 @@
+/* Create table about the people and what they do here. Data from Fandango and IMDB. */
+
+CREATE TABLE actors (id INTEGER PRIMARY KEY, name TEXT, age INTEGER, gender TEXT, co_star_id INTEGER);
+
+INSERT INTO actors VALUES (1, "Chris Evans", 41, "Male", 2);
+INSERT INTO actors VALUES (2, "Robert Downey Jr.", 58, "Male", 1);
+INSERT INTO actors VALUES (3, "Jennifer Lawrence", 32, "Female", 4);
+INSERT INTO actors VALUES (4, "Bradley Cooper", 48, "Male", 3);
+INSERT INTO actors VALUES (5, "Margot Robbie", 32, "Female", 10);
+INSERT INTO actors VALUES (6, "Ryan Gosling", 42, "Male", 7);
+INSERT INTO actors VALUES (7, "Emma Stone", 34, "Female", 6);
+INSERT INTO actors VALUES (8, "Samuel L. Jackson", 74, "Male", 9);
+INSERT INTO actors VALUES (9, "John Travolta", 69, "Male", 8);
+INSERT INTO actors VALUES (10, "Leonardo DiCaprio", 48, "Male", 5);
+
+CREATE TABLE spouses (id INTEGER PRIMARY KEY, actors_id INTEGER, spouse_name TEXT);
+
+INSERT INTO spouses VALUES (1, 2, "Susan Downey");
+INSERT INTO spouses VALUES (2, 3, "Cooke Maroney");
+INSERT INTO spouses VALUES (3, 5, "Tom Ackerley");
+INSERT INTO spouses VALUES (4, 6, "Eva Mendes");
+INSERT INTO spouses VALUES (5, 7, "Dave McCary");
+INSERT INTO spouses VALUES (6, 8, "LaTanya Richardson Jackson");
+INSERT INTO spouses VALUES (7, 9, "Kelly Preston");
+
+CREATE TABLE movies (id INTEGER PRIMARY KEY, title TEXT, year_released INTEGER, actor1_id INTEGER, actor2_id INTEGER);
+
+INSERT INTO movies VALUES (1, "The Avengers", 2012, 2, 1);
+INSERT INTO movies VALUES (2, "Silver Linings Playbook", 2012, 4, 3);
+INSERT INTO movies VALUES (3, "The Wolf of Wall Street", 2013, 10, 5);
+INSERT INTO movies VALUES (4, "La La Land", 2016, 6, 7);
+INSERT INTO movies VALUES (5, "Pulp Fiction", 1994, 9, 8);
+
+
+
+/* Show the name of each actor and their spouses name (even if they do not have a spouse, which would result in NULL) (LEFT OUTER JOIN) */
+
+SELECT actors.name, spouses.spouse_name
+FROM actors
+LEFT OUTER JOIN spouses
+ON actors.id = spouses.actors_id;
+
+
+
+/* Show the titles of each movie and the starring actors names. (MULTIPLE JOINS) */
+
+SELECT title, actor1.name, actor2.name
+FROM movies
+JOIN actors AS actor1
+ON movies.actor1_id = actor1.id
+JOIN actors AS actor2
+ON movies.actor2_id = actor2.id;
+
+
+
